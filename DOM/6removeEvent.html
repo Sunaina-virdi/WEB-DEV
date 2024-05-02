@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body style="background-color: #414141; color:aliceblue ;">
+    <h2>Amazing Images</h2>
+    <div>
+        <ul id=images>
+            <li><img width="200px" height="200px" id="eye" src="https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_3000,h_2000,f_auto/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/ikknf4oeysojhyv2z0jk/LondonEyeTicket-KlookNewZealand.jpg" alt=""></li>
+            <li><img width="200px" height="200px" id="cntower" src="https://www.cntower.ca/sites/default/files/styles/16_9_scale_and_crop_large/public/images/explore-cn-tower%20.jpg?h=5ce0254a&itok=A_rLcJHm" alt=""></li>
+            <li><img width="200px" height="200px" id="bridge" src="https://i.etsystatic.com/29318579/r/il/805ae0/3339810438/il_fullxfull.3339810438_4t71.jpg" alt=""></li>
+            <li><img width="200px" height="200px" id="toronto" src="https://assets-global.website-files.com/620e4101b2ce12a1a6bff0e8/64bd66e503dc44b4f5f5d4f0_toronto%20(1).jpg" alt=""></li>
+            <li><img width="200px" height="200px" id="sydney" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5i0lp3fDersjE_A0YYHjjh6XyuxaC7SdMY-Llj-oHpA&s" alt=""></li>
+            <li><a style="color:aliceblue" href="https://www.google.com/" id="google">Google</a></li>
+        </ul>
+    </div>
+    <script>
+        document.getElementById('google').addEventListener('click',function(e){
+            console.log("google clicked");
+            e.preventDefault();  //it will not open google in new tab
+            e.stopPropagation()
+        } ,false)
+
+        document.querySelector('#images').addEventListener('click',function(e){
+            console.log(e.target.tagName);
+            if(e.target.tagName === 'IMG'){
+                console.log(e.target.id);
+                let removeit = e.target.parentNode
+                removeit.remove()
+            }
+
+
+            // removeit.parentNode.removeChild/(removeit)
+        },false)
+    </script>
+</body>
+</html>
